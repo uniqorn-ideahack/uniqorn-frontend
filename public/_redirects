@@ -1,0 +1,5 @@
+# Redirect default Netlify subdomain to primary domain
+https://uniqorn.netlify.com/* https://uniqorn.nikl.me/:splat 301!
+
+# let the client router handle things
+/*  /index.html  200
