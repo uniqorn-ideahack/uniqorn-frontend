@@ -6,8 +6,7 @@ import './Questionaire.css';
 export default class Questionaire extends Component {
     constructor(props){
         super(props);
-        this.state = { color: '', 
-                      traits: []};
+        this.state = {traits: []};
         let service = axios.create({
             baseURL: `${process.env.REACT_APP_API}`,
             withCredentials: true
@@ -17,23 +16,16 @@ export default class Questionaire extends Component {
     
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const color = this.state.color;
         const traits=this.state.traits;
-        this.service.post('/questionaire', {color, traits})
+        this.service.post('/traits', {traits})
         .then( response => {
           console.log(response)
             this.setState({ 
-                            color:"",
-                            traits: ""
+                            traits: []
                           });
             this.props.history.push('/user/dashboard')
         })
         .catch( error => console.log(error) )
-      }
-      
-      handleChange = (event) => {  
-        const {name, value} = event.target;
-        this.setState({[name]: value});
       }
       
       handleChangeTraits = (event) =>{
@@ -44,28 +36,25 @@ export default class Questionaire extends Component {
       render() {
         return (
             <MainLayout>
-            <div className="questionaire">
-              <h3>Questionaire:</h3>
-              <form className="questionaire__input" onSubmit={this.handleFormSubmit}>
-    
-                <label>Personality color:</label>
-                <input type="text" name="color" value={this.state.color} onChange={ e => this.handleChange(e)}/>
-                
-                <label>Occupation:</label>
-                <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
-                
-                <label>Occupation:</label>
-                <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
-                
-                <label>Occupation:</label>
-                <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
-                
-                <label>Occupation:</label>
-                <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
-                
-                <button className="submitBtn" type="submit">Submit</button>
-              </form>
-            </div>
+              <div className="questionaire">
+                <h3>Questionaire:</h3>
+                <form className="questionaire__input" onSubmit={this.handleFormSubmit}>
+      
+                  <label>Occupation:</label>
+                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
+                  
+                  <label>Occupation:</label>
+                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
+                  
+                  <label>Occupation:</label>
+                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
+                  
+                  <label>Occupation:</label>
+                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
+                  
+                  <button className="submitBtn" type="submit">Submit</button>
+                </form>
+              </div>
             </MainLayout>
             )
         }

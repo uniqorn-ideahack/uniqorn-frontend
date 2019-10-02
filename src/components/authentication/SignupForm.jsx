@@ -12,25 +12,29 @@ export default class SignUp extends Component {
                     surname:"",
                     email:"",
                     password: "",
-                    confirmedPassword:""};
+                    confirmedPassword:"", 
+                    color:""};
     this.service= new AuthService();
   }  
   
   handleFormSubmit = (event) => {
     event.preventDefault();
+    const colors=['red','yellow','blue','green'];
     const name = this.state.name;
     const surname = this.state.surname;
     const email = this.state.email;
     const password=this.state.password;
     const confirmedPassword= this.state.confirmedPassword;
-    this.service.signup(name,surname,email,password, confirmedPassword)
+    let color= colors[Math.floor(Math.random()*colors.length)]
+    this.service.signup(name,surname,email,password, confirmedPassword, color)
     .then( response => {
       console.log(response)
         this.setState({ name: "",
                         surname:"",
                         email:"",
                         password: "",
-                        confirmedPassword:""
+                        confirmedPassword:"",
+                        color:""
                       });
         this.props.history.push('/user/questionaire')
     })

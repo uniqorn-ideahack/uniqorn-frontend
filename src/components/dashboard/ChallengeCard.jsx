@@ -5,11 +5,11 @@ import "./ChallengeCard.css";
 export default class ChallengeCard extends Component {
     render() {
         return (
-            <Link className='challengeCard' to='/user/challengedetail'>
+            <Link className='challengeCard' to='/user/dashboard/challengedetail'>
                 <div>
-                    <h3>Lesson 3</h3>
-                    <p>Learning how to blah blah blah blah</p>
-                    <p>Point earnt: 50 <i class="fas fa-coins"></i></p>
+                    <h3>{this.props.title}</h3>
+                    <p>{this.props.description}</p>
+                    <p>Point earnt: {this.props.points} <i class="fas fa-coins"></i></p>
                 </div>
             </Link>
             
