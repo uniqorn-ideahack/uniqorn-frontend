@@ -24,7 +24,7 @@ export default class Nav extends Component {
       return(
         <>
           <div className="navbar">
-            <Link to="/">AppName</Link>
+            <Link to="/">GedankenTanken</Link>
             <div className="navbar__right">
                 <Link to="/user/profile" className="navbar__username" >Hello, {this.state.user.user.name}!</Link>
                 <Link to="/user/profile" className="navbar__link">Profile</Link>
@@ -38,7 +38,7 @@ export default class Nav extends Component {
       return (
         <>
             <div className="navbar">
-                <Link to="/" className="navbar__icon">AppName</Link>
+                <Link to="/" className="navbar__icon">GEDANKENTanken</Link>
                 <div className="navbar__right">
                     <Link to="/signup" className="navbar__link">SignUp</Link>
                     <Link to="/login" className="navbar__link">Login</Link>
