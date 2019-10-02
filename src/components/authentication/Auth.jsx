@@ -7,8 +7,8 @@ class AuthService {
     this.service = service;
   }
 
-  signup = (name, surname, email, password, confirmedPassword) => {
-    return this.service.post('/auth/register', {name, surname, email, password, confirmedPassword})
+  signup = (name, surname, email, password,color) => {
+    return this.service.post('/auth/register', {name, surname, email, password,color})
     .then(response => {
       this.setUser(response.data)
     return response.data})     
