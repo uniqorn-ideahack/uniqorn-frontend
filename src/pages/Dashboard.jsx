@@ -12,14 +12,14 @@ export default class Dashboard extends Component {
             <MainLayout>
                 <div className='dashboard'>
                     <div>
-                        <Link to="/user/dailychallenges">Daily Challenges</Link>
-                        <Link to="/user/progress">Progress</Link>
-                        <Link to="/user/buddylist">Buddy List</Link>
+                        <Link to="/user/dashboard/dailychallenges">Daily Challenges</Link>
+                        <Link to="/user/dashboard/progress">Progress</Link>
+                        <Link to="/user/dashboard/buddylist">Buddy List</Link>
                     </div>
 
-                    <Route path="/user/dailychallenges" render = {(routeProps)=> <DailyChallenges {...routeProps}/>}/>
-                    <Route path="/user/progress" render = {(routeProps)=> <Progress {...routeProps}/>}/>
-                    <Route path="/user/buddylist" render = {(routeProps)=> <BuddyList {...routeProps}/>}/>
+                    <Route path="/user/dashboard/dailychallenges" render = {(routeProps)=> <DailyChallenges {...routeProps}/>}/>
+                    <Route path="/user/dashboard/progress" render = {(routeProps)=> <Progress {...routeProps}/>}/>
+                    <Route path="/user/dashboard/buddylist" render = {(routeProps)=> <BuddyList {...routeProps}/>}/>
                 </div>
             </MainLayout>
         )
