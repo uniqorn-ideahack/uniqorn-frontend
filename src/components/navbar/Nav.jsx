@@ -26,8 +26,8 @@ export default class Nav extends Component {
           <div className="navbar">
             <Link to="/">AppName</Link>
             <div className="navbar__right">
-                <Link to="/user/profile" className="navbar__username" >Hello, {this.state.user.user.name}!</Link>
-                <Link to="/user/profile" className="navbar__link">Profile</Link>
+                <Link to="/user/dashboard" className="navbar__username" >Hello, {this.state.user.user.name}!</Link>
+                <Link to="/user/dashboard" className="navbar__link">Dashboard</Link>
                 <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>   
                 <Link to="/about" className="navbar__link">About</Link>       
             </div>
