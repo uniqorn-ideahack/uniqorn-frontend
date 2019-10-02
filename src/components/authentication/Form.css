@@ -16,7 +16,7 @@ form {
 }
 
 .a {
-    color: var(--dark-blue);
+    color: var(--darkblue);
     text-decoration: underline;
 }
 
@@ -30,7 +30,7 @@ input {
     padding: .7rem .6rem;
     border-radius: .1rem;
     font-size: 1.2rem;
-    border: 2px solid var(--dark-blue);
+    border: 2px solid var(--darkblue);
 }
 
 button {
@@ -42,5 +42,5 @@ button {
     color: white;
     cursor: pointer;
     border: none;
-    background-color: var(--dark-blue);
+    background-color: var(--darkblue);
 }

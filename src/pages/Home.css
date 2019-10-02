@@ -26,3 +26,8 @@ progress::-webkit-progress-value {
     background: var(--blue);
     border-radius: 2px;
 }
+
+progress::-moz-progress-bar {
+    background: var(--blue);
+    border-radius: 2px;
+}
