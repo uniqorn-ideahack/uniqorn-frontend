@@ -32,7 +32,7 @@ export default class SignUp extends Component {
                         password: "",
                         confirmedPassword:""
                       });
-        this.props.history.push('/user/profile')
+        this.props.history.push('/user/questionaire')
     })
     .catch( error => console.log(error) )
   }

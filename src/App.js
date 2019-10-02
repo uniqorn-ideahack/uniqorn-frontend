@@ -4,6 +4,8 @@ import './App.css';
 import Home from "./pages/Home";
 import Login from "./components/authentication/LoginForm";
 import SignUp from "./components/authentication/SignupForm";
+import Dashboard from "./pages/Dashboard";
+import Questionaire from "./pages/Questionaire";
 // import Profile from "./Pages/Profile";
 // import SignUp from "./Pages/SignUp";
 // import Login from "./Pages/Login";
@@ -23,6 +25,9 @@ class App extends Component {
         <Route exact path="/" render = {(routeProps)=> <Home {...routeProps}/>}/>
         <Route exact path="/signup" render ={(routeProps)=><SignUp {...routeProps}/>}/>
         <Route exact path="/login" render = {(routeProps)=><Login {...routeProps}/>}/>
+        <Route exact path="/user/questionaire" render = {(routeProps)=> <Questionaire {...routeProps}/>}/>
+        <Route exact path="/user/dashboard" render = {(routeProps)=> <Dashboard {...routeProps}/>}/>
+
         {/* <Route exact path="/about" render = {(routeProps)=> <About {...routeProps}/>}/>
         <Route exact path="/gardenAround" render ={()=> <Map/>}/>
         <Route exact path="/user/profile" render = {(routeProps)=> <Profile {...routeProps}/>}/>

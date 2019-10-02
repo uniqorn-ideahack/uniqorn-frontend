@@ -22,7 +22,7 @@ export default class LoginForm extends Component {
                         email:"",
                         password: ""
                       });
-        this.props.history.push('/user/profile')
+        this.props.history.push('/user/dashboard')
     })
     .catch( error => console.log(error) )
   }
