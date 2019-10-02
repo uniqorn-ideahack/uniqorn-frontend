@@ -4,42 +4,25 @@ import "./Form.css";
 import AuthService from "./Auth";
 import MainLayout from "../layout/MainLayout";
 
-export default class SignUp extends Component {
+export default class LoginForm extends Component {
     constructor(props) {
         super(props);
-        this.formRef = React.createRef();
-        this.state = {
-            name: "",
-            surname: "",
-            email: "",
-            password: "",
-            confirmedPassword: "",
-            color: ""
-        };
+        this.state = {email: '', password: ''};
         this.service = new AuthService();
     }
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        const colors = ['red', 'yellow', 'blue', 'green'];
-        const name = this.state.name;
-        const surname = this.state.surname;
         const email = this.state.email;
         const password = this.state.password;
-        const confirmedPassword = this.state.confirmedPassword;
-        let color = colors[Math.floor(Math.random() * colors.length)]
-        this.service.signup(name, surname, email, password, confirmedPassword, color)
+        this.service.login(email, password)
             .then(response => {
                 console.log(response)
                 this.setState({
-                    name: "",
-                    surname: "",
                     email: "",
-                    password: "",
-                    confirmedPassword: "",
-                    color: ""
+                    password: ""
                 });
-                this.props.history.push('/user/questionaire')
+                this.props.history.push('/user/dashboard')
             })
             .catch(error => console.log(error))
     }
@@ -48,7 +31,7 @@ export default class SignUp extends Component {
         const {name, value} = event.target;
         this.setState({[name]: value});
     }
-
+    
     render() {
         return (
             <MainLayout>
