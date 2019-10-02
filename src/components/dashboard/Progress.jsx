@@ -5,7 +5,7 @@ export default class Progress extends Component {
     render() {
         return (
             <div>
-                
+                some graph
             </div>
         )
     }

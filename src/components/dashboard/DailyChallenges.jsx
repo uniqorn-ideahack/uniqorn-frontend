@@ -17,9 +17,6 @@ export default class CurrentChallenges extends Component {
                     <ChallengeCard/>
                     <ChallengeCard/>
                 </div>
-                <div>
-                    
-                </div>
             </>
         )
     }
