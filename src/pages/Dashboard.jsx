@@ -5,7 +5,6 @@ import MainLayout from '../components/layout/MainLayout';
 import BuddyList from "./BuddyList";
 import DailyChallenges from '../components/dashboard/DailyChallenges';
 import LeaderBoard from './LeaderBoard';
-import ChallengeDetail from "../components/dashboard/ChallengeDetail";
 
 export default class Dashboard extends Component {
     render() {
@@ -19,7 +18,6 @@ export default class Dashboard extends Component {
                     </div>
 
                     <Route path="/user/dashboard/dailychallenges" render = {(routeProps)=> <DailyChallenges {...routeProps}/>}/>
-                    <Route path="/user/dashboard/challengedetail" render = {(routeProps)=> <ChallengeDetail {...routeProps}/>}/>
                     <Route path="/user/dashboard/buddylist" render = {(routeProps)=> <BuddyList {...routeProps}/>}/>
                     <Route path="/user/dashboard/leaderboard" render = {(routeProps)=> <LeaderBoard {...routeProps}/>}/>
 

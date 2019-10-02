@@ -31,7 +31,7 @@ export default class CurrentChallenges extends Component {
         let weekdays=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let months=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         let d= new Date();
-        let eachChallenge;
+        let eachChallenge=null;
         if(this.state.challenges){
             let allChallenges=this.state.challenges;
             eachChallenge= allChallenges.map((challenge)=>{  
@@ -40,6 +40,7 @@ export default class CurrentChallenges extends Component {
                     )
             })
         }
+
         return (
             <>
                 <h1 className="dashboard__title">Daily Challenges</h1>
