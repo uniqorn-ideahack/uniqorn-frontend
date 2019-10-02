@@ -67,14 +67,12 @@ export default class SignUp extends Component {
                                        onChange={e => this.handleChange(e)}/>
                             </div>
                         </div>
-
                         <button className="submitBtn" type="submit">Log in</button>
-                    </form>
 
-                    <p>Don't have an account?
-                        <Link to={"/signup"} style={{color: 'rgb(5, 5, 5)', textDecoration: "underline"}}> Sign
-                            up</Link>
-                    </p>
+                        <span>Don't have an account? 
+                            <Link to={"/signup"} class="a">Sign up</Link>
+                        </span>
+                    </form>
                 </div>
             </MainLayout>
         )

@@ -72,11 +72,11 @@ export default class SignUp extends Component {
                             </div>
                         </div>
                         <button className="submitBtn" type="submit">Sign up</button>
-                    </form>
 
-                    <p>Already have an account?
-                        <Link to={"/login"} style={{color: 'rgb(5, 5, 5)', textDecoration: "underline"}}> Log in</Link>
-                    </p>
+                        <span>Already have an account? 
+                            <Link to={"/login"} class="a">Log in</Link>
+                        </span>
+                    </form>
                 </div>
             </MainLayout>
         )
