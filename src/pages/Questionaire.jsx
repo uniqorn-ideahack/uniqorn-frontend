@@ -6,32 +6,39 @@ import './Questionaire.css';
 export default class Questionaire extends Component {
     constructor(props){
         super(props);
-        this.state = {traits: []};
+        this.state = {
+            user: JSON.parse(localStorage.getItem('user')),
+            occupation:"",
+            happy:""
+        };
         let service = axios.create({
             baseURL: `${process.env.REACT_APP_API}`,
-            withCredentials: true
+            withCredentials: true,
+            header: {Authorization:"Bearer "+ this.state.user.token}
           });
         this.service=service;
       }
     
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const traits=this.state.traits;
+        const traits=[this.state.occupation,this.state.happy];
         this.service.post('/traits', {traits})
         .then( response => {
           console.log(response)
             this.setState({ 
-                            traits: []
+                            occupation: "",
+                            happy:""
                           });
             this.props.history.push('/user/dashboard')
         })
         .catch( error => console.log(error) )
       }
       
-      handleChangeTraits = (event) =>{
-        const {value} = event.target;
-        this.setState({traits:[...this.state.traits, value]})
+      handleChange = (event) => {  
+        const {name, value} = event.target;
+        this.setState({[name]: value});
       }
+
 
       render() {
         return (
@@ -41,16 +48,10 @@ export default class Questionaire extends Component {
                 <form className="questionaire__input" onSubmit={this.handleFormSubmit}>
       
                   <label>Occupation:</label>
-                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
+                  <input type="text" name="occupation" value={this.state.occupation} onChange={ e => this.handleChange(e)} />
                   
-                  <label>Occupation:</label>
-                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
-                  
-                  <label>Occupation:</label>
-                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
-                  
-                  <label>Occupation:</label>
-                  <input type="text" name="traits" value={this.state.traits} onChange={ e => this.handleChangeTraits(e)} />
+                  <label>Happy/Sad/Depressed:</label>
+                  <input type="text" name="happy" value={this.state.happy} onChange={ e => this.handleChange(e)} />
                   
                   <button className="submitBtn" type="submit">Submit</button>
                 </form>
