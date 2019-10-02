@@ -4,3 +4,7 @@
     align-items: center;
     width: 100%;
 }
+
+.dashboard__title {
+    margin: 0;
+}

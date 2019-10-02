@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './ChallengeDetail.css';
+import "./LeaderBoard.css";
 
-export default class ChallengeDetail extends Component {
+export default class LeaderBoard extends Component {
     render() {
         return (
             <div>
