@@ -1,0 +1,30 @@
+.navbar {
+    height: 8vh;
+    background-color: #272727;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar__link {
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar i {
+    color: #3e452e;
+}
+
+.navbar__icon {
+    color: white;
+    text-decoration: none;
+}

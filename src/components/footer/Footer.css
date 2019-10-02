@@ -1,0 +1,38 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 20vh;
+    background-color: rgb(0, 0, 0);
+}
+
+.footer,
+.fa-facebook-square,
+.fa-twitter-square,
+.fa-instagram {
+    color: white;
+}
+
+.footer p {
+    color: white;
+}
+
+.footer__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.footer__rowBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__rowBox>p {
+    margin-right: 10px;
+}
