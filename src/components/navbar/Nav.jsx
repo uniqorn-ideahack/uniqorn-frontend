@@ -40,7 +40,7 @@ export default class Nav extends Component {
             <div className="navbar">
                 <Link to="/" className="navbar__icon">GEDANKENTanken</Link>
                 <div className="navbar__right">
-                    <Link to="/signup" className="navbar__link">SignUp</Link>
+                    <Link to="/signup" className="navbar__link">Sign up</Link>
                     <Link to="/login" className="navbar__link">Login</Link>
                     <Link to="/about" className="navbar__link">About</Link>
                 </div>
