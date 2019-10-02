@@ -25,8 +25,8 @@ class App extends Component {
         <Route exact path="/" render = {(routeProps)=> <Home {...routeProps}/>}/>
         <Route exact path="/signup" render ={(routeProps)=><SignUp {...routeProps}/>}/>
         <Route exact path="/login" render = {(routeProps)=><Login {...routeProps}/>}/>
-        <Route exact path="/user/questionaire" render = {(routeProps)=> <Questionaire {...routeProps}/>}/>
-        <Route exact path="/user/dashboard" render = {(routeProps)=> <Dashboard {...routeProps}/>}/>
+        <Route path="/user/questionaire" render = {(routeProps)=> <Questionaire {...routeProps}/>}/>
+        <Route path="/user/dashboard" render = {(routeProps)=> <Dashboard {...routeProps}/>}/>
 
         {/* <Route exact path="/about" render = {(routeProps)=> <About {...routeProps}/>}/>
         <Route exact path="/gardenAround" render ={()=> <Map/>}/>
