@@ -15,11 +15,6 @@ form {
     align-items: flex-start;
 }
 
-.a {
-    color: var(--darkblue);
-    text-decoration: underline;
-}
-
 #form-group {
     display: flex;
     flex-direction: column;
@@ -31,7 +26,7 @@ input {
     padding: .7rem .6rem;
     border-radius: .1rem;
     font-size: 1.2rem;
-    border: 2px solid var(--darkblue);
+    border: 2px solid rgb(1, 42, 61);
     margin: 10px 0;
 }
 
@@ -48,7 +43,7 @@ button {
     color: white;
     cursor: pointer;
     border: none;
-    background-color: var(--darkblue);
+    background-color: rgb(1, 42, 61);
 }
 
 .questionaire {
