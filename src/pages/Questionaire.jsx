@@ -8,9 +8,9 @@ export default class Questionaire extends Component {
         super(props);
         this.state = {
             user: JSON.parse(localStorage.getItem('user')),
-            occupation:"",
-            important:"",
-            stress:"",
+            occupation:"Students",
+            important:"Studying/ Working",
+            stress:"Yes",
             why:""
         };
         let service = axios.create({
@@ -29,7 +29,6 @@ export default class Questionaire extends Component {
         traits.push(important);
         traits.push(stress);
         traits.push(why);
-
         this.service.post('/traits', {traits})
         .then( response => {
             this.setState({ 
@@ -57,7 +56,7 @@ export default class Questionaire extends Component {
                 <form className="questionaire__input" onSubmit={this.handleFormSubmit}>
 
                 <label>Occupation:</label>
-                <select name="occupation" onChange={ e => this.handleChange(e)}>
+                <select name="occupation" value={this.state.occupation} onChange={ e => this.handleChange(e)}>
                   <option value ="students">Students</option>
                   <option value ="employed">Employed</option>
                   <option value ="self-employed">Self-employed</option>
@@ -65,7 +64,7 @@ export default class Questionaire extends Component {
                 </select>
 
                 <label>What is most important to you?</label>
-                <select name="important" onChange={ e => this.handleChange(e)}>
+                <select name="important" value={this.state.important} onChange={ e => this.handleChange(e)}>
                   <option value ="studying/working">Studying/ Working</option>
                   <option value ="friends">Spending time with friends and family</option>
                   <option value ="partying">Partying</option>
@@ -73,13 +72,13 @@ export default class Questionaire extends Component {
                 </select>
 
                 <label>Do you feel often stressed out?</label>
-                <select name="stress" onChange={ e => this.handleChange(e)}>
+                <select name="stress"  value={this.state.stress} onChange={ e => this.handleChange(e)}>
                   <option value ="stressed">Yes</option>
                   <option value ="not stressed">No</option>
                 </select>
                   {/* <input type="text" name="occupation" value={this.state.occupation} onChange={ e => this.handleChange(e)} /> */}
                   
-                  <label>Why you wanna change:</label>
+                  <label>Why do you wanna change?</label>
                   <input type="text" name="why" value={this.state.why} onChange={ e => this.handleChange(e)} />
 
                   <button className="submitBtn" type="submit">Submit</button>

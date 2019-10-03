@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 import "./BuddyList.css";
 import axios from "axios";
 
@@ -55,12 +56,14 @@ export default class BuddyList extends Component {
       })
     return (
       <div className="buddylist">
+        <Link to="/user/choosebuddy"> Add other buddy</Link>
         <h4>Your buddy</h4>
         {eachBud}
       </div>
     );
       } else {
           return <>
+          You have no buddies yet
           </>
       }
       
