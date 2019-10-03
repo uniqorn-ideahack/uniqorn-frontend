@@ -16,7 +16,7 @@ export default class Home extends Component {
             <MainLayout>
                 {(this.state.user) ?
                     <main>
-                        <h1>Hello Tim!</h1>
+                        <h1>Hello {this.state.user.user.name}!</h1>
                         <h3>Your journey to lose weight: Day 7 of 30</h3>
                         <progress max="100" value="40"></progress>
                         <h2>Next step</h2>
