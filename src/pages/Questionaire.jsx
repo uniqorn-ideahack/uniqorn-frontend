@@ -14,17 +14,19 @@ export default class Questionaire extends Component {
         let service = axios.create({
             baseURL: `${process.env.REACT_APP_API}`,
             withCredentials: true,
-            header: {Authorization:"Bearer "+ this.state.user.token}
+            headers: {Authorization:"Bearer "+ this.state.user.token}
           });
         this.service=service;
       }
     
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const traits=[this.state.occupation,this.state.happy];
+        const {occupation, happy}= this.state;
+        const traits=[];
+        traits.push(occupation);
+        traits.push(happy)
         this.service.post('/traits', {traits})
         .then( response => {
-          console.log(response)
             this.setState({ 
                             occupation: "",
                             happy:""

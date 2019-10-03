@@ -14,7 +14,7 @@ export default class CurrentChallenges extends Component {
         let service = axios.create({
             baseURL: `${process.env.REACT_APP_API}`,
             withCredentials: true,
-            header: {Authorization:"Bearer "+ this.state.user.token}
+            headers: {Authorization:"Bearer "+ this.state.user.token}
           });
         this.service=service;
     }

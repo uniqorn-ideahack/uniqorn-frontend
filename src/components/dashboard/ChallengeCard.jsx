@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import "./ChallengeCard.css";
 import axios from 'axios';
 
@@ -12,7 +11,7 @@ export default class ChallengeCard extends Component {
         let service = axios.create({
             baseURL: `${process.env.REACT_APP_API}`,
             withCredentials: true,
-            header: {Authorization:"Bearer "+ this.state.user.token}
+            headers: {Authorization:"Bearer "+ this.state.user.token}
           });
         this.service=service;
     }
@@ -24,13 +23,14 @@ export default class ChallengeCard extends Component {
         })
         .catch( error => console.log(error) )
       }
+
     render() {
         return (
                 <div className="challengeCard">
-                    <h3>{this.props.title}</h3>
-                    <p>{this.props.description}</p>
-                    <p>Point earnt: {this.props.points} <i class="fas fa-coins"></i></p>
-                    <button type="submit" onClick={()=>{this.finishChallenge(this.props.id)}}>Finish</button>
+                    <h3>{this.props.challenge.title}</h3>
+                    <p>{this.props.challenge.description}</p>
+                    <p>Point earnt: {this.props.challenge.points} <i class="fas fa-coins"></i></p>
+                    <button type="submit" onClick={()=>{this.finishChallenge(this.props.challenge.id)}}>Finish</button>
                 </div>
             
         )
