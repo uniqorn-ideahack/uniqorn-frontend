@@ -12,6 +12,11 @@
     margin: 10px;
     text-decoration: none;
     color: white;
+    display: flex;
+}
+
+.navbar__link span {
+    margin: auto 0;
 }
 
 .navbar__right {

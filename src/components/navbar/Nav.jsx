@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Nav.css';
 import {Link} from 'react-router-dom';
+import Logo from '../../Logo'
 
 export default class Nav extends Component {
 
@@ -24,7 +25,7 @@ export default class Nav extends Component {
       return(
         <>
           <div className="navbar">
-            <Link className="navbar__link" to="/">Uniqorn</Link>
+            <Link className="navbar__link" to="/"><Logo className="navbar__logo" width={30} height={30}/><span>Uniqorn</span></Link>
             <div className="navbar__right">
                 {/* <p className="navbar__link">Hello, {this.state.user.user.name}!</p> */}
                 <p className="navbar__link">{(this.state.user.user.points)?(this.state.user.user.points):0} points</p>
