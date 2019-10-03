@@ -14,7 +14,7 @@ export default class ChooseBuddy extends Component {
             withCredentials: true,
             headers: {Authorization:"Bearer "+ this.state.user.token}
           });
-        this.service=service;
+        this.service = service;
     }
 
     componentDidMount(){
@@ -26,7 +26,7 @@ export default class ChooseBuddy extends Component {
     }
 
     addBuddy (userId){
-        this.service.post(`/buddy/${userId}`)
+        this.service.post(`/buddy`,{id: userId})
         .then(response=>{
             this.props.history.push("/user/dashboard/buddy")
         })
@@ -42,9 +42,9 @@ export default class ChooseBuddy extends Component {
             eachUser=allUsers.map((user)=>{
                 return (
                     <div>
-                        <p>Name: </p>
-                        <p>Point: </p>
-                        <button onClick={this.addBuddy(user.id)} type="submit">Add buddy</button>
+                        <p>Name: {user.name} {user.surname}</p>
+                        <p>Point: {user.points} pt </p>
+                        <button onClick={()=>{this.addBuddy(user.id)}} type="submit">Add buddy</button>
                     </div>
                 )
             })
