@@ -52,12 +52,12 @@ export default class LoginForm extends Component {
                         </div>
 
                         <button className="submitBtn" type="submit">Log in</button>
-                    </form>
 
-                    <p>Don't have an account?
+                        <p>Don't have an account?
                         <Link to={"/signup"} style={{color: 'rgb(5, 5, 5)', textDecoration: "underline"}}> Sign
                             up</Link>
-                    </p>
+                        </p>
+                    </form>
                 </div>
             </MainLayout>
         )
