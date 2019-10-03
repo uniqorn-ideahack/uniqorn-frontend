@@ -1,3 +1,14 @@
 .mainlayout {
     height: 100vh;
 }
+
+.wrapper {
+    min-height: 92vh;
+    min-width: 320px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 0 auto;
+}

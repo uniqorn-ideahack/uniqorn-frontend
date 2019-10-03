@@ -4,8 +4,8 @@ import "./BuddyList.css";
 export default class BuddyList extends Component {
     render() {
         return (
-            <div>
-                <h3>Buddy List</h3>
+            <div className="buddylist">
+                <h4>Your buddy</h4>
             </div>
         )
     }

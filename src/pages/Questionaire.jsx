@@ -31,7 +31,7 @@ export default class Questionaire extends Component {
                             occupation: "",
                             happy:""
                           });
-            this.props.history.push('/user/dashboard')
+            this.props.history.push('/user/yourbuddy')
         })
         .catch( error => console.log(error) )
       }

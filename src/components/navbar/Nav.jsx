@@ -24,12 +24,11 @@ export default class Nav extends Component {
       return(
         <>
           <div className="navbar">
-            <Link to="/">GedankenTanken</Link>
+            <Link className="navbar__link" to="/">Uniqorn</Link>
             <div className="navbar__right">
-                <Link to="/user/dashboard" className="navbar__username" >Hello, {this.state.user.user.name}!</Link>
+                <p className="navbar__link">Hello, {this.state.user.user.name}!</p>
                 <Link to="/user/dashboard" className="navbar__link">Dashboard</Link>
                 <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>   
-                <Link to="/about" className="navbar__link">About</Link>       
             </div>
           </div> 
         </>
@@ -38,11 +37,10 @@ export default class Nav extends Component {
       return (
         <>
             <div className="navbar">
-                <Link to="/" className="navbar__icon">GEDANKENTanken</Link>
+                <Link to="/" className="navbar__icon">Uniqorn</Link>
                 <div className="navbar__right">
                     <Link to="/signup" className="navbar__link">Sign up</Link>
                     <Link to="/login" className="navbar__link">Log in</Link>
-                    <Link to="/about" className="navbar__link">About</Link>
                 </div>
                 
             </div>  

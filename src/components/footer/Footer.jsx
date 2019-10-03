@@ -6,7 +6,7 @@ export default class Footer extends Component {
     return (
       <div className="footer">
         <div className="footer__box">
-          <p>GedankenTanken</p>
+          <p>Uniqorn</p>
           <p>© {new Date().getFullYear()}</p>
         </div>
         <div className="footer__rowBox">

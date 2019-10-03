@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./DailyChallenges.css";
 import ChallengeCard from "./ChallengeCard";
-import Progress from './Progress';
 import axios from 'axios';
 
 export default class CurrentChallenges extends Component {
@@ -42,14 +41,13 @@ export default class CurrentChallenges extends Component {
         }
 
         return (
-            <>
-                <h1 className="dashboard__title">Daily Challenges</h1>
+            <div className="dailychallenges">
+                <h4>Daily Challenges</h4>
                 <p>{weekdays[d.getDay()]}, {d.getDate()} {months[d.getMonth()]} {d.getFullYear()}</p>
-                <div className="dailyChallenges">
+                <div className="dailychallenges__each">
                     {eachChallenge}
                 </div>
-                <Progress/>
-            </>
+            </div>
         )
     }
 }

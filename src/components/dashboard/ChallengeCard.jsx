@@ -29,7 +29,7 @@ export default class ChallengeCard extends Component {
                 <div className="challengeCard">
                     <h3>{this.props.challenge.title}</h3>
                     <p>{this.props.challenge.description}</p>
-                    <p>Point earnt: {this.props.challenge.points} <i class="fas fa-coins"></i></p>
+                    <p>Point earnt: {this.props.challenge.points}pt <i class="fas fa-coins"></i></p>
                     <button type="submit" onClick={()=>{this.finishChallenge(this.props.challenge.id)}}>Finish</button>
                 </div>
             
