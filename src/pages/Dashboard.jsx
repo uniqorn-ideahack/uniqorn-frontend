@@ -30,7 +30,7 @@ export default class Dashboard extends Component {
                         <Link to="/user/dashboard/dailychallenges" 
                                 // style={{textDecoration: this.state.underlined}} 
                                 className="dashboard__tabLink">Daily Challenges</Link>
-                        <Link to="/user/dashboard/buddylist" 
+                        <Link to="/user/dashboard/buddy" 
                                 // style={{textDecoration: this.state.underlined}} 
                                 className="dashboard__tabLink">Buddy</Link>
                         <Link to="/user/dashboard/leaderboard" 
@@ -39,7 +39,7 @@ export default class Dashboard extends Component {
                     </div>
 
                     <Route path="/user/dashboard/dailychallenges" render = {(routeProps)=> <DailyChallenges {...routeProps}/>}/>
-                    <Route path="/user/dashboard/buddylist" render = {(routeProps)=> <BuddyList {...routeProps}/>}/>
+                    <Route path="/user/dashboard/buddy" render = {(routeProps)=> <BuddyList {...routeProps}/>}/>
                     <Route path="/user/dashboard/leaderboard" render = {(routeProps)=> <LeaderBoard {...routeProps}/>}/>
 
                 </div>

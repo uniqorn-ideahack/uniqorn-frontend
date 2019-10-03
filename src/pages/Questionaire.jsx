@@ -34,7 +34,7 @@ export default class Questionaire extends Component {
                             happy:"",
                             why:""
                           });
-            this.props.history.push('/user/yourbuddy')
+            this.props.history.push('/user/choosebuddy')
         })
         .catch( error => console.log(error) )
       }
