@@ -18,14 +18,14 @@ function SVG (props) {
             <polygon id="path-7"
                      points="86.0556444 26.5412859 86.0556444 0.789048889 0.732811852 0.789048889 0.732811852 26.5412859 86.0556444 26.5412859"/>
         </defs>
-        <g id="GT_LOGO" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GT_LOGO" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="Group-13" transform="translate(56.000000, 56.000000)">
                 <g id="Group-11-Copy">
                     <g id="Group-7-Copy-2">
                         <g id="Group-Copy">
                             <g id="Oval-Copy-2">
-                                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlinkHref="#path-1"/>
-                                <use fill="#FFFFFF" fill-rule="evenodd" xlinkHref="#path-1"/>
+                                <use fill="black" fillOpacity="1" filter="url(#filter-2)" xlinkHref="#path-1"/>
+                                <use fill="#FFFFFF" fillRule="evenodd" xlinkHref="#path-1"/>
                             </g>
                             <g id="Page-1" transform="translate(24.874074, 26.225926)">
                                 <g id="Group-3" transform="translate(0.000000, 0.077001)">
