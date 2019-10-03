@@ -1,6 +1,6 @@
 .navbar {
     height: 8vh;
-    background-color: rgb(1, 42, 61);
+    background-color: #2a363b;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

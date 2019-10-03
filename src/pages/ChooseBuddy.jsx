@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import MainLayout from "../components/layout/MainLayout";
-import { all } from 'q';
 
 export default class ChooseBuddy extends Component {
     constructor(props){
         super(props);
         this.state={
+            user: JSON.parse(localStorage.getItem('user')),
             users:null
         }
         let service = axios.create({
@@ -26,7 +26,7 @@ export default class ChooseBuddy extends Component {
     }
 
     addBuddy (userId){
-        this.service.post(`/user/buddy/${userId}`)
+        this.service.post(`/buddy/${userId}`)
         .then(response=>{
             this.props.history.push("/user/dashboard/buddy")
         })
@@ -49,7 +49,7 @@ export default class ChooseBuddy extends Component {
                 )
             })
         }
-        
+
         return (
             <MainLayout>
                 {eachUser}
