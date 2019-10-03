@@ -5,6 +5,7 @@ import MainLayout from '../components/layout/MainLayout';
 import BuddyList from "./BuddyList";
 import DailyChallenges from '../components/dashboard/DailyChallenges';
 import LeaderBoard from './LeaderBoard';
+import Progress from '../components/dashboard/Progress';
 
 export default class Dashboard extends Component {
     constructor(props){
@@ -36,6 +37,9 @@ export default class Dashboard extends Component {
                         <Link to="/user/dashboard/dailychallenges" 
                                 // style={{textDecoration: this.state.underlined}} 
                                 className="dashboard__tabLink">Daily Challenges</Link>
+                        <Link to="/user/dashboard/progress" 
+                                // style={{textDecoration: this.state.underlined}} 
+                                className="dashboard__tabLink">Progress</Link>                    
                         <Link to="/user/dashboard/buddy" 
                                 // style={{textDecoration: this.state.underlined}} 
                                 className="dashboard__tabLink">Buddy</Link>
@@ -45,6 +49,7 @@ export default class Dashboard extends Component {
                     </div>
 
                     <Route path="/user/dashboard/dailychallenges" render = {(routeProps)=> <DailyChallenges setstate={this.setStatefunc} {...routeProps}/>}/>
+                    <Route path="/user/dashboard/progress" render = {(routeProps)=> <Progress {...routeProps}/>}/>
                     <Route path="/user/dashboard/buddy" render = {(routeProps)=> <BuddyList {...routeProps}/>}/>
                     <Route path="/user/dashboard/leaderboard" render = {(routeProps)=> <LeaderBoard {...routeProps}/>}/>
 

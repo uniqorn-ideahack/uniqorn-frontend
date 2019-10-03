@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import MainLayout from "../components/layout/MainLayout";
+import "./ChooseBuddy.css";
 
 export default class ChooseBuddy extends Component {
     constructor(props){
@@ -41,7 +42,7 @@ export default class ChooseBuddy extends Component {
             let allUsers= this.state.users;
             eachUser=allUsers.map((user)=>{
                 return (
-                    <div>
+                    <div className='eachUser'>
                         <p>Name: {user.name} {user.surname}</p>
                         <p>Point: {user.points} pt </p>
                         <button onClick={()=>{this.addBuddy(user.id)}} type="submit">Add buddy</button>
@@ -52,7 +53,9 @@ export default class ChooseBuddy extends Component {
 
         return (
             <MainLayout>
-                {eachUser}
+                <div className='userstochoose'>
+                    {eachUser}
+                </div>
             </MainLayout>
         )
     }

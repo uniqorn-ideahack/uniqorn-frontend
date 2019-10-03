@@ -5,8 +5,8 @@ export default class Progress extends Component {
     render() {
         return (
             <div className="progressBox">
-                <h1 className='dashboard__title'>Personal progress</h1>
-                <p>some graph</p>
+                <h4 className='dashboard__title'>Personal progress</h4>
+                <img className='chart' src="/progress.png" alt=""/>
             </div>
         )
     }

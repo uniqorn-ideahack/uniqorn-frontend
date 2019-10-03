@@ -31,6 +31,18 @@ export default class LeaderBoard extends Component {
         if(this.state.users){
         let leaders=this.state.users;
         console.log(leaders)
+
+        let eachleader=leaders.map(leader=>{
+            return(
+                    <div className='leaderboard__nextitem'>
+                        <i className="fas fa-circle"></i>
+                        <p>{leader.name} {leader.surname}</p>
+                        <p>Points: {leader.points} pt</p>                 
+                    </div>
+            )
+        })
+
+        eachleader.splice(0,3);
         return (
             <div className="leaderboard">
                 <h4>Leader Board</h4>
@@ -54,21 +66,7 @@ export default class LeaderBoard extends Component {
                 </div>             
 
                 <div className='leaderboard__next'>
-                    <div className='leaderboard__nextitem'>
-                        <i className="fas fa-circle"></i>
-                        <p>next one</p>
-                        <p>Points: pt</p>                      
-                    </div>
-                    <div className='leaderboard__nextitem'>
-                        <i className="fas fa-circle"></i>
-                        <p>next one</p>
-                        <p>Points: pt</p>                      
-                    </div>
-                    <div className='leaderboard__nextitem'>
-                        <i className="fas fa-circle"></i>
-                        <p>next one</p>
-                        <p>Points: pt</p>                      
-                    </div>
+                    {eachleader}
                 </div>                
                                 
             </div>

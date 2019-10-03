@@ -20,8 +20,11 @@ export default class BuddyList extends Component {
     componentDidMount(){
         this.service.get('/buddies')
         .then(response=>{
+            this.service.get('/users')
+            .then(res=>{
             console.log(response.data)
-            this.setState({buddies: response.data})
+            this.setState({buddies: response.data, users:res.data})
+            })
         })
         .catch(error=>{
             console.log(error)
@@ -29,10 +32,11 @@ export default class BuddyList extends Component {
     }
 
     render() {
+
         return (
             <div className="buddylist">
                 <h4>Your buddy</h4>
-                
+
             </div>
         )
     }

@@ -69,7 +69,7 @@ class CurrentChallenges extends Component {
             <>
             {(this.state.challenges)?
                 <div className="dailychallenges">
-                <h4>Daily Challenges</h4>
+                <h4 className='dashboard__title'> Daily Challenges</h4>
                 {(eachChallenge && this.state.challenges)?
                 <>               
                     <p>{weekdays[d.getDay()]}, {d.getDate()} {months[d.getMonth()]} {d.getFullYear()}</p>
@@ -86,6 +86,8 @@ class CurrentChallenges extends Component {
             </div>
             :
             <>
+                <h4>Daily Challenges</h4>
+                <p>You have finished all daily challenges</p>
             </>
             }
             </>
