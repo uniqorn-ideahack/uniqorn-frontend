@@ -54,7 +54,7 @@ export default class LoginForm extends Component {
                         <button className="submitBtn" type="submit">Log in</button>
 
                         <p>Don't have an account?
-                        <Link to={"/signup"} style={{color: 'rgb(5, 5, 5)', textDecoration: "underline"}}> Sign
+                        <Link to={"/signup"} style={{color: 'blue', textDecoration: "underline"}}> Sign
                             up</Link>
                         </p>
                     </form>

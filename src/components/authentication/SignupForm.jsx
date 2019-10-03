@@ -74,7 +74,7 @@ export default class SignUp extends Component {
                         <button className="submitBtn" type="submit">Sign up</button>
 
                         <span>Already have an account? 
-                            <Link to={"/login"} class="a">Log in</Link>
+                            <Link to={"/login"} style={{color: 'blue', textDecoration: "underline"}}>Log in</Link>
                         </span>
                     </form>
                 </div>
