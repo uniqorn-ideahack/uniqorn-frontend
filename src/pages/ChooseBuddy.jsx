@@ -21,7 +21,8 @@ export default class ChooseBuddy extends Component {
     componentDidMount(){
         this.service.get('/users')
         .then( response => {
-            this.setState({ users: response.data });
+            let users=response.data.filter(user=> user.id !==this.state.user.user.id)
+            this.setState({ users: users });
         })
         .catch( error => console.log(error) )
     }
@@ -42,7 +43,7 @@ export default class ChooseBuddy extends Component {
             let allUsers= this.state.users;
             eachUser=allUsers.map((user)=>{
                 return (
-                    <div className='eachUser'>
+                    <div className='eachUser__box'>
                         <p>Name: {user.name} {user.surname}</p>
                         <p>Point: {user.points} pt </p>
                         <button onClick={()=>{this.addBuddy(user.id)}} type="submit">Add buddy</button>
@@ -53,6 +54,7 @@ export default class ChooseBuddy extends Component {
 
         return (
             <MainLayout>
+                <h4>Here are your matching buddies:</h4>
                 <div className='userstochoose'>
                     {eachUser}
                 </div>

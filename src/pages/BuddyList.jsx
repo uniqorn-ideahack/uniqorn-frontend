@@ -42,10 +42,27 @@ export default class BuddyList extends Component {
   }
 
   render() {
+      if(this.state.buddies){
+          let buds= this.state.buddies;
+      let eachBud=null;
+      eachBud= buds.map((bud)=>{
+          return(
+              <div className='eachUser__box'>
+              <p>Name: {bud.name}</p>
+              <p>Point: {bud.points} pt</p>
+              </div>
+          )
+      })
     return (
       <div className="buddylist">
         <h4>Your buddy</h4>
+        {eachBud}
       </div>
     );
+      } else {
+          return <>
+          </>
+      }
+      
   }
 }
