@@ -1,43 +1,51 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "./BuddyList.css";
-import axios from 'axios';
+import axios from "axios";
 
 export default class BuddyList extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            user: JSON.parse(localStorage.getItem('user')),
-            buddies:null
-        }
-        let service = axios.create({
-            baseURL: `${process.env.REACT_APP_API}`,
-            withCredentials: true,
-            headers: {Authorization:"Bearer "+ this.state.user.token}
-          });
-        this.service=service;
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: JSON.parse(localStorage.getItem("user")),
+      buddies: null
+    };
+    let service = axios.create({
+      baseURL: `${process.env.REACT_APP_API}`,
+      withCredentials: true,
+      headers: { Authorization: "Bearer " + this.state.user.token }
+    });
+    this.service = service;
+  }
 
-    componentDidMount(){
-        this.service.get('/buddies')
-        .then(response=>{
-            this.service.get('/users')
-            .then(res=>{
-            console.log(response.data)
-            this.setState({buddies: response.data, users:res.data})
-            })
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-    }
+  componentDidMount() {
+    this.service
+      .get("/buddies")
+      .then(response => {
+        let buddies = response.data.map(buddy => {
+          return [buddy.user_one, buddy.user_two].filter(
+            id => id !== this.state.user.user.id
+          )[0];
+        });
+        Promise.all(
+          buddies.map(id =>
+            this.service.get("/user/" + id).then(res => res.data)
+          )
+        ).then(buds => {
+          buddies = buds;
+          console.log(buddies);
+          this.setState({ buddies: buddies });
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
-    render() {
-
-        return (
-            <div className="buddylist">
-                <h4>Your buddy</h4>
-
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="buddylist">
+        <h4>Your buddy</h4>
+      </div>
+    );
+  }
 }
