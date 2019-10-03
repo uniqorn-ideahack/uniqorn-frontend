@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import "./DailyChallenges.css";
-import ChallengeCard from "./ChallengeCard";
+import "./ChallengeCard.css";
 import axios from 'axios';
+import { withRouter } from 'react-router'; 
 
-export default class CurrentChallenges extends Component {
+class CurrentChallenges extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -21,11 +22,29 @@ export default class CurrentChallenges extends Component {
     componentDidMount(){
         this.service.get('/dailychallenges')
         .then( response => {
-          console.log(response)
-            this.setState({ challenges: response.data });
+            if(response.data.length>0){
+                this.setState({ challenges: response.data });
+            } else {
+                this.setState({challenges:null})
+            }
         })
         .catch( error => console.log(error) )
     }
+
+    finishChallenge (challengeId){
+        this.service.post(`/dailychallenges/${challengeId}`)
+        .then( response => {
+            let updateUser={...this.state.user}
+            updateUser.user.points = response.data.points
+            localStorage.setItem('user', JSON.stringify(updateUser));
+            let challenge=[...this.state.challenges].filter(ch => ch.id!==challengeId)
+            console.log(challenge)
+            this.setState({user:updateUser, challenges: challenge})
+            debugger
+            this.props.setstate();
+        })
+        .catch( error => console.log(error) )
+      }
 
     render() {
         let weekdays=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -36,19 +55,44 @@ export default class CurrentChallenges extends Component {
             let allChallenges=this.state.challenges;
             eachChallenge= allChallenges.map((challenge)=>{  
                 return(
-                    <ChallengeCard challenge={challenge}/>
-                    )
+                <div className="challengeCard">
+                    <h3>{challenge.title}</h3>
+                    <p>{challenge.description}</p>
+                    <p>Point earnt: {challenge.points} pt</p>
+                    <button type="submit" onClick={()=>{this.finishChallenge(challenge.id)}}>Finish</button>
+                </div>
+                )
             })
         }
 
         return (
-            <div className="dailychallenges">
+            <>
+            {(this.state.challenges)?
+                <div className="dailychallenges">
                 <h4>Daily Challenges</h4>
-                <p>{weekdays[d.getDay()]}, {d.getDate()} {months[d.getMonth()]} {d.getFullYear()}</p>
-                <div className="dailychallenges__each">
-                    {eachChallenge}
+                {(eachChallenge && this.state.challenges)?
+                <>               
+                    <p>{weekdays[d.getDay()]}, {d.getDate()} {months[d.getMonth()]} {d.getFullYear()}</p>
+                    <div className="dailychallenges__each">
+                        {eachChallenge}
+                    </div>
+                </>
+                :
+                <div>
+                    <p>You have finished all daily challenges</p>
                 </div>
+                }
+                
             </div>
+            :
+            <>
+            </>
+            }
+            </>
+                
         )
     }
 }
+
+
+export default withRouter(CurrentChallenges)

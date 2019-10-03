@@ -19,36 +19,37 @@ export default class LeaderBoard extends Component {
     componentDidMount(){
         this.service.get('/users')
         .then( response => {
-            console.log(response.data)
             let allUsers=response.data;
-            allUsers.sort((a, b) => (a.points > b.points) ? 1 : -1)
-            let leaders= allUsers.splice(0,9);
-            console.log(leaders)
-            this.setState({ users: leaders });
+            allUsers.sort((a, b) => (a.points > b.points) ? -1 : 1)
+            console.log(allUsers)
+            this.setState({ users: allUsers });
         })
         .catch( error => console.log(error) )
     }
 
     render() {
+        if(this.state.users){
+        let leaders=this.state.users;
+        console.log(leaders)
         return (
             <div className="leaderboard">
                 <h4>Leader Board</h4>
                 <div className="leaderboard__one">
                     <i className="fas fa-trophy leaderboard__one__trophy fa-5x"></i>
-                    <p>first place</p>
-                    <p>Points: pt</p>
+                    <p>{leaders[0].name} {leaders[0].surname}</p>
+                    <p>Points: {leaders[0].points} pt</p>
                 </div> 
 
                 <div className='leaderboard__second'>
                     <div className="leaderboard__secondcircle">
                         <i className="fas fa-trophy leaderboard__two__trophy fa-3x"></i>
-                        <p>second place</p>
-                        <p>Points: pt</p>
+                        <p>{leaders[1].name} {leaders[1].surname}</p>
+                        <p>Points: {leaders[1].points} pt</p>
                     </div>
                     <div className="leaderboard__secondcircle">
                         <i className="fas fa-trophy leaderboard__three__trophy fa-3x"></i>
-                        <p>third place</p>
-                        <p>Points: pt</p>
+                        <p>{leaders[2].name} {leaders[2].surname}</p>
+                        <p>Points: {leaders[2].points} pt</p>
                     </div>
                 </div>             
 
@@ -71,6 +72,9 @@ export default class LeaderBoard extends Component {
                 </div>                
                                 
             </div>
-        )
+        )} else {
+            return <>
+            </>
+        }
     }
 }
