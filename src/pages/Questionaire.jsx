@@ -9,7 +9,8 @@ export default class Questionaire extends Component {
         this.state = {
             user: JSON.parse(localStorage.getItem('user')),
             occupation:"",
-            happy:""
+            happy:"",
+            why:""
         };
         let service = axios.create({
             baseURL: `${process.env.REACT_APP_API}`,
@@ -21,15 +22,17 @@ export default class Questionaire extends Component {
     
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const {occupation, happy}= this.state;
+        const {occupation, happy,why}= this.state;
         const traits=[];
         traits.push(occupation);
         traits.push(happy)
+        traits.push(why)
         this.service.post('/traits', {traits})
         .then( response => {
             this.setState({ 
                             occupation: "",
-                            happy:""
+                            happy:"",
+                            why:""
                           });
             this.props.history.push('/user/yourbuddy')
         })
@@ -55,6 +58,9 @@ export default class Questionaire extends Component {
                   <label>Happy/Sad/Depressed:</label>
                   <input type="text" name="happy" value={this.state.happy} onChange={ e => this.handleChange(e)} />
                   
+                  <label>Why you wanna change:</label>
+                  <input type="text" name="why" value={this.state.why} onChange={ e => this.handleChange(e)} />
+
                   <button className="submitBtn" type="submit">Submit</button>
                 </form>
               </div>
