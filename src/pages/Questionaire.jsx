@@ -9,7 +9,8 @@ export default class Questionaire extends Component {
         this.state = {
             user: JSON.parse(localStorage.getItem('user')),
             occupation:"",
-            happy:"",
+            important:"",
+            stress:"",
             why:""
         };
         let service = axios.create({
@@ -22,16 +23,19 @@ export default class Questionaire extends Component {
     
       handleFormSubmit = (event) => {
         event.preventDefault();
-        const {occupation, happy,why}= this.state;
+        const {occupation, important,stress, why}= this.state;
         const traits=[];
         traits.push(occupation);
-        traits.push(happy)
-        traits.push(why)
+        traits.push(important);
+        traits.push(stress);
+        traits.push(why);
+
         this.service.post('/traits', {traits})
         .then( response => {
             this.setState({ 
                             occupation: "",
-                            happy:"",
+                            important:"",
+                            stress:"",
                             why:""
                           });
             this.props.history.push('/user/choosebuddy')
@@ -51,12 +55,29 @@ export default class Questionaire extends Component {
               <div className="questionaire">
                 <h3>Questionaire:</h3>
                 <form className="questionaire__input" onSubmit={this.handleFormSubmit}>
-      
-                  <label>Occupation:</label>
-                  <input type="text" name="occupation" value={this.state.occupation} onChange={ e => this.handleChange(e)} />
-                  
-                  <label>Happy/Sad/Depressed:</label>
-                  <input type="text" name="happy" value={this.state.happy} onChange={ e => this.handleChange(e)} />
+
+                <label>Occupation:</label>
+                <select name="occupation" onChange={ e => this.handleChange(e)}>
+                  <option value ="students">Students</option>
+                  <option value ="employed">Employed</option>
+                  <option value ="self-employed">Self-employed</option>
+                  <option value ="umemployed">Unemployed</option>
+                </select>
+
+                <label>What is most important to you?</label>
+                <select name="important" onChange={ e => this.handleChange(e)}>
+                  <option value ="studying/working">Studying/ Working</option>
+                  <option value ="friends">Spending time with friends and family</option>
+                  <option value ="partying">Partying</option>
+                  <option value ="self">Self development</option>
+                </select>
+
+                <label>Do you feel often stressed out?</label>
+                <select name="stress" onChange={ e => this.handleChange(e)}>
+                  <option value ="stressed">Yes</option>
+                  <option value ="not stressed">No</option>
+                </select>
+                  {/* <input type="text" name="occupation" value={this.state.occupation} onChange={ e => this.handleChange(e)} /> */}
                   
                   <label>Why you wanna change:</label>
                   <input type="text" name="why" value={this.state.why} onChange={ e => this.handleChange(e)} />

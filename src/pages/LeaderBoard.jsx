@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./LeaderBoard.css";
+import axios from 'axios';
 
 export default class LeaderBoard extends Component {
     constructor(props){
@@ -7,7 +8,27 @@ export default class LeaderBoard extends Component {
         this.state={
             user: JSON.parse(localStorage.getItem('user'))
         }
+        let service = axios.create({
+            baseURL: `${process.env.REACT_APP_API}`,
+            withCredentials: true,
+            headers: {Authorization:"Bearer "+ this.state.user.token}
+          });
+        this.service=service;
     }
+
+    componentDidMount(){
+        this.service.get('/users')
+        .then( response => {
+            console.log(response.data)
+            let allUsers=response.data;
+            allUsers.sort((a, b) => (a.points > b.points) ? 1 : -1)
+            let leaders= allUsers.splice(0,9);
+            console.log(leaders)
+            this.setState({ users: leaders });
+        })
+        .catch( error => console.log(error) )
+    }
+
     render() {
         return (
             <div className="leaderboard">
