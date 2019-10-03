@@ -1,5 +1,6 @@
 .challengeCard {
     width: 30%;
+    height: 300px;
     margin: 10px;
     display: flex;
     flex-direction: column;

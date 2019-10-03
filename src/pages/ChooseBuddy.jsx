@@ -26,7 +26,7 @@ export default class ChooseBuddy extends Component {
     }
 
     addBuddy (userId){
-        this.service.post(`/buddy`,{id: userId})
+        this.service.post('/buddy',{id: userId})
         .then(response=>{
             this.props.history.push("/user/dashboard/buddy")
         })
