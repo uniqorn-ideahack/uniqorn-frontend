@@ -17,6 +17,7 @@ export default class CurrentChallenges extends Component {
           });
         this.service=service;
     }
+    
     componentDidMount(){
         this.service.get('/dailychallenges')
         .then( response => {

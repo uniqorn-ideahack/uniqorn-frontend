@@ -27,7 +27,7 @@ export default class Nav extends Component {
             <Link className="navbar__link" to="/">Uniqorn</Link>
             <div className="navbar__right">
                 <p className="navbar__link">Hello, {this.state.user.user.name}!</p>
-                <Link to="/user/dashboard" className="navbar__link">Dashboard</Link>
+                <Link to="/user/dashboard/dailychallenges" className="navbar__link">Dashboard</Link>
                 <Link to="#" className="navbar__link" onClick={() => this.logoutUser()}>Log out</Link>   
             </div>
           </div> 
