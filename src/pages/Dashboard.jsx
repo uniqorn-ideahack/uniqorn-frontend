@@ -10,9 +10,11 @@ export default class Dashboard extends Component {
     constructor(props){
         super(props);
         this.state={
-            underlined: "none"
+            underlined: "none",
+            user:""
         }
         this.toggleUnderlined=this.toggleUnderlined.bind(this);
+        this.setStatefunc=this.setStatefunc.bind(this);
     }
 
     toggleUnderlined(){
@@ -20,6 +22,10 @@ export default class Dashboard extends Component {
         this.setState({underlined:"underline"})
         :
         this.setState({underlined:"none"})
+    }
+
+    setStatefunc(){
+        this.setState({user:null})
     }
 
     render() {
@@ -38,7 +44,7 @@ export default class Dashboard extends Component {
                                 className="dashboard__tabLink">Leader Board</Link>
                     </div>
 
-                    <Route path="/user/dashboard/dailychallenges" render = {(routeProps)=> <DailyChallenges {...routeProps}/>}/>
+                    <Route path="/user/dashboard/dailychallenges" render = {(routeProps)=> <DailyChallenges setstate={this.setStatefunc} {...routeProps}/>}/>
                     <Route path="/user/dashboard/buddy" render = {(routeProps)=> <BuddyList {...routeProps}/>}/>
                     <Route path="/user/dashboard/leaderboard" render = {(routeProps)=> <LeaderBoard {...routeProps}/>}/>
 
